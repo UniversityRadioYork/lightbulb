@@ -1,0 +1,91 @@
+<html><body>
+<style>
+    body{font-family: Arial, Helvetica, sans-serif;}
+
+    #Fz{
+        height:0px;
+        width:0px;
+        background-color: white;
+        float: left;
+        opacity:0;
+    }
+
+    .sis-button{
+        height: 30px;
+        width: 20px;
+        float: left;
+        margin: 5px;
+    }
+
+    .sis-button:focus{border: #8080ff 5px solid;}
+
+    #Fr{background: #ff0000;}
+    #Fg{background: #00ff00;}
+    #Fb{background: #0000ff;}
+    #Fc{background: #00ffff;}
+    #Fm{background: #ff00ff;}
+    #Fy{background: #ffff00;}
+    #Fw{background: #ffffff;}
+    #Fk{background: #000000;}
+    #Pw{background-image: linear-gradient(red, yellow);}
+    #Pr{background-image: linear-gradient(red, orange, yellow, green, cyan, blue, magenta);}
+    #Pc{background-image: linear-gradient(cyan, blue);}
+
+</style>
+                
+<div id="allowed"><div style="border-style:solid; border-width:1px; border-radius:5px; "><input type="checkbox" id="override" style="float:top;">Override Song Colour</input><br></div>
+<button class="sis-button" id="Fr"></button>
+<button class="sis-button" id="Fg"></button>
+<button class="sis-button" id="Fb"></button>
+<button class="sis-button" id="Fc"></button>
+<button class="sis-button" id="Fm"></button>
+<button class="sis-button" id="Fy"></button>
+<button class="sis-button" id="Fw"></button>
+<button class="sis-button" id="Fk"></button>
+<button class="sis-button" id="Pw"></button>
+<button class="sis-button" id="Pr"></button>
+<button class="sis-button" id="Pc"></button>
+<button id='Fz'></button>
+                
+<script>
+var xhttp = new XMLHttpRequest();
+var activeButton = "Fz";
+
+function checkState(){
+    if (document.getElementById('override').checked){
+        return '1';
+    }else{
+        return '0';
+    }
+}
+
+function sendSisCode(code){
+    if (activeButton==code){
+        document.getElementById("Fz").focus();
+        activeButton = "Fz"
+    }else{                
+        activeButton = code;
+    }
+
+    xhttp.open("GET", "node_file.js?programcode="+checkState()+activeButton, true);
+    xhttp.send();
+}
+
+function resetFocus(){
+    document.getElementById(activeButton).focus();
+}
+
+document.getElementById('Fr').onclick = function(){sendSisCode('Fr')};
+document.getElementById('Fg').onclick = function(){sendSisCode('Fg')};
+document.getElementById('Fb').onclick = function(){sendSisCode('Fb')};
+document.getElementById('Fc').onclick = function(){sendSisCode('Fc')};
+document.getElementById('Fm').onclick = function(){sendSisCode('Fm')};
+document.getElementById('Fy').onclick = function(){sendSisCode('Fy')};
+document.getElementById('Fw').onclick = function(){sendSisCode('Fw')};
+document.getElementById('Fk').onclick = function(){sendSisCode('Fk')};
+document.getElementById('Pw').onclick = function(){sendSisCode('Pw')};
+document.getElementById('Pr').onclick = function(){sendSisCode('Pr')};
+document.getElementById('Pc').onclick = function(){sendSisCode('Pc')};
+document.getElementById('override').onclick = function(){resetFocus()};
+</script>
+</body></html>
