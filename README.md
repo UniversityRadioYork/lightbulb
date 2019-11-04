@@ -6,7 +6,7 @@
  |______|_____\_____|_|  |_|  |_|  |____/ \____/|______|____/ 
                                                               
                                                               
-LED's Immersiv Glowing However Totally Bodged with Unattractive but Loved Box
+LED's Immersive Glowing However Totally Bodged with Unattractive but Loved Box
 
 Third (I think) attempt at the LEDs in Studio Red
 
@@ -34,7 +34,7 @@ There is a node file to run, which should interface with the plugin in SIS, allo
 
 +++ REMARK +++
 
-Should the whole thing have been done in Node? - Yes
+Should the whole thing have been done in Node? - Yes,
 Was it? - No. Clearly. Deal with It.
 
 -Michael
